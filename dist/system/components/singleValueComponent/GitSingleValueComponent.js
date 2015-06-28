@@ -41,6 +41,10 @@ System.register(['dash-component', 'dash-transform'], function (_export) {
                     this.stream.start({ interval: 3000 });
                 };
 
+                GitSingleValueComponent.prototype.detached = function detached() {
+                    this.stream.stop();
+                };
+
                 return GitSingleValueComponent;
             })(baseComponent);
 

@@ -28,4 +28,9 @@ export class GitSingleValueComponent extends baseComponent
 
         this.stream.start({interval: 3000});
     }
+
+    detached()
+    {
+        this.stream.stop();
+    }
 }

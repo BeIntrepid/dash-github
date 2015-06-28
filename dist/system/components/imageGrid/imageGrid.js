@@ -46,6 +46,10 @@ System.register(['dash-component', 'dash-transform', 'linq-es6'], function (_exp
                     this.stream.start({ interval: 3000 });
                 };
 
+                imageGrid.prototype.detached = function detached() {
+                    this.stream.stop();
+                };
+
                 return imageGrid;
             })(baseComponent);
 
