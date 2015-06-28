@@ -6,7 +6,10 @@ System.register(['dash-transform', '../githubResponseCache', 'linq-es6'], functi
     _export('registerPipes', registerPipes);
 
     function registerPipes() {
-        var callGithubEvents = new transform.FunctionFilter('callGithubEvents', function () {
+
+        var lib = new transform.TransformLibrary();
+
+        var callGithubEvents = lib.registerFilter(new transform.FunctionFilter('callGithubEvents', function () {
             var p = new Promise(function (res, rej) {
 
                 res(JSON.stringify(responses[0]));
@@ -19,23 +22,25 @@ System.register(['dash-transform', '../githubResponseCache', 'linq-es6'], functi
                 });
             });
             return p;
-        });
+        }));
 
-        var toJson = new transform.FunctionFilter('toJson', function (inputObj, input) {
+        var toJson = lib.registerFilter(new transform.FunctionFilter('toJson', function (inputObj, input) {
             return JSON.parse(input);
-        });
+        }));
 
-        var jsonGithubEventsToCount = new transform.FunctionFilter('jsonGithubEventsToCount', function (inputObj, input) {
+        var jsonGithubEventsToCount = lib.registerFilter(new transform.FunctionFilter('jsonGithubEventsToCount', function (inputObj, input) {
             return Enumerable(input).where(function (e) {
                 return e.type == 'PushEvent';
             }).count();
-        });
+        }));
+
+        var getGithubEventsAsJson = new transform.Pipe('getGithubEventsAsJson');
+        getGithubEventsAsJson.add(callGithubEvents).add(toJson);
+        lib.registerPipe(getGithubEventsAsJson);
 
         var pipe = new transform.Pipe('githubEventsToCount');
 
-        pipe.add(callGithubEvents).add(toJson).add(jsonGithubEventsToCount);
-
-        var lib = new transform.TransformLibrary();
+        pipe.add(lib.getPipeWrapped('getGithubEventsAsJson')).add(jsonGithubEventsToCount);
 
         lib.registerPipe(pipe);
     }
