@@ -1,7 +1,7 @@
 System.register(['dash-component', 'dash-transform'], function (_export) {
     'use strict';
 
-    var baseComponent, transform, GitSingleValueComponent;
+    var BaseComponent, transform, GitSingleValueComponent;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -9,26 +9,26 @@ System.register(['dash-component', 'dash-transform'], function (_export) {
 
     return {
         setters: [function (_dashComponent) {
-            baseComponent = _dashComponent.baseComponent;
+            BaseComponent = _dashComponent.BaseComponent;
         }, function (_dashTransform) {
             transform = _dashTransform;
         }],
         execute: function () {
-            GitSingleValueComponent = (function (_baseComponent) {
+            GitSingleValueComponent = (function (_BaseComponent) {
                 function GitSingleValueComponent() {
                     _classCallCheck(this, GitSingleValueComponent);
 
-                    _baseComponent.call(this);
+                    _BaseComponent.call(this);
                     this.caption = 'PushEvents in last call';
                     this.value = 'NaDa';
                 }
 
-                _inherits(GitSingleValueComponent, _baseComponent);
+                _inherits(GitSingleValueComponent, _BaseComponent);
 
                 GitSingleValueComponent.prototype.activate = function activate(model) {
                     var _this = this;
 
-                    _baseComponent.prototype.activate.call(this, model);
+                    _BaseComponent.prototype.activate.call(this, model);
 
                     var lib = new transform.TransformLibrary();
 
@@ -46,7 +46,7 @@ System.register(['dash-component', 'dash-transform'], function (_export) {
                 };
 
                 return GitSingleValueComponent;
-            })(baseComponent);
+            })(BaseComponent);
 
             _export('GitSingleValueComponent', GitSingleValueComponent);
         }

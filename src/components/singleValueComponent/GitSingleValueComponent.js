@@ -1,9 +1,9 @@
-import {baseComponent} from 'dash-component'
+import {BaseComponent} from 'dash-component'
 import * as transform from 'dash-transform'
 
 
 
-export class GitSingleValueComponent extends baseComponent
+export class GitSingleValueComponent extends BaseComponent
 {
     caption = 'PushEvents in last call';
     value = 'NaDa';

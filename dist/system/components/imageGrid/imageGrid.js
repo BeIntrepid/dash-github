@@ -1,7 +1,7 @@
 System.register(['dash-component', 'dash-transform', 'linq-es6'], function (_export) {
     'use strict';
 
-    var baseComponent, transform, Enumerable, imageGrid;
+    var BaseComponent, transform, Enumerable, ImageGrid;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -9,28 +9,28 @@ System.register(['dash-component', 'dash-transform', 'linq-es6'], function (_exp
 
     return {
         setters: [function (_dashComponent) {
-            baseComponent = _dashComponent.baseComponent;
+            BaseComponent = _dashComponent.BaseComponent;
         }, function (_dashTransform) {
             transform = _dashTransform;
         }, function (_linqEs6) {
             Enumerable = _linqEs6['default'];
         }],
         execute: function () {
-            imageGrid = (function (_baseComponent) {
-                function imageGrid() {
-                    _classCallCheck(this, imageGrid);
+            ImageGrid = (function (_BaseComponent) {
+                function ImageGrid() {
+                    _classCallCheck(this, ImageGrid);
 
-                    _baseComponent.call(this);
+                    _BaseComponent.call(this);
                     this.caption = 'PushEvents in last call';
                     this.imageUrls = [];
                 }
 
-                _inherits(imageGrid, _baseComponent);
+                _inherits(ImageGrid, _BaseComponent);
 
-                imageGrid.prototype.activate = function activate(model) {
+                ImageGrid.prototype.activate = function activate(model) {
                     var _this = this;
 
-                    _baseComponent.prototype.activate.call(this, model);
+                    _BaseComponent.prototype.activate.call(this, model);
 
                     var lib = new transform.TransformLibrary();
 
@@ -46,14 +46,14 @@ System.register(['dash-component', 'dash-transform', 'linq-es6'], function (_exp
                     this.stream.start({ interval: 3000 });
                 };
 
-                imageGrid.prototype.detached = function detached() {
+                ImageGrid.prototype.detached = function detached() {
                     this.stream.stop();
                 };
 
-                return imageGrid;
-            })(baseComponent);
+                return ImageGrid;
+            })(BaseComponent);
 
-            _export('imageGrid', imageGrid);
+            _export('ImageGrid', ImageGrid);
         }
     };
 });

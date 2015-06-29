@@ -1,9 +1,9 @@
-import {baseComponent} from 'dash-component'
+import {BaseComponent} from 'dash-component'
 import * as transform from 'dash-transform'
 import Enumerable from 'linq-es6'
 
 
-export class imageGrid extends baseComponent
+export class ImageGrid extends BaseComponent
 {
     caption = 'PushEvents in last call';
     imageUrls = [];
