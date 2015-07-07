@@ -36,8 +36,9 @@ System.register(['dash-component', 'dash-transform', 'linq-es6'], function (_exp
 
                     this.stream = new transform.Stream(lib.getPipeWrapped('getGithubEventsAsJson'));
 
+                    this.stream.build();
+
                     this.stream.subscribe(function (o) {
-                        console.log(o.length);
                         _this.imageUrls = Enumerable(o).select(function (e) {
                             return e.actor.avatar_url;
                         }).toArray();

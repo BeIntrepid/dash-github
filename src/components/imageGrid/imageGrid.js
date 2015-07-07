@@ -22,8 +22,9 @@ export class ImageGrid extends BaseComponent
 
         this.stream = new transform.Stream(lib.getPipeWrapped('getGithubEventsAsJson'));
 
+        this.stream.build();
+
         this.stream.subscribe((o)=>{
-            console.log(o.length);
             this.imageUrls = Enumerable(o).select((e)=>{return e.actor.avatar_url}).toArray();
         });
 

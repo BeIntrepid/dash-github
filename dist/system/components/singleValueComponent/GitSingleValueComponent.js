@@ -25,6 +25,10 @@ System.register(['dash-component', 'dash-transform'], function (_export) {
 
                 _inherits(GitSingleValueComponent, _BaseComponent);
 
+                GitSingleValueComponent.prototype.switchType = function switchType(type) {
+                    this.stream.getMapInputs().githubEventsToCount_jsonGithubEventsToCount.forInput('eventType').value = type;
+                };
+
                 GitSingleValueComponent.prototype.activate = function activate(model) {
                     var _this = this;
 
@@ -33,6 +37,12 @@ System.register(['dash-component', 'dash-transform'], function (_export) {
                     var lib = new transform.TransformLibrary();
 
                     this.stream = new transform.Stream(lib.getPipeWrapped('githubEventsToCount'));
+
+                    this.stream.build();
+
+                    var inputs = this.stream.getMapInputs();
+
+                    inputs.githubEventsToCount_jsonGithubEventsToCount.forInput('eventType').value = 'PushEvent';
 
                     this.stream.subscribe(function (o) {
                         _this.value = o;

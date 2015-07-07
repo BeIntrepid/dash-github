@@ -28,11 +28,12 @@ System.register(['dash-transform', '../githubResponseCache', 'linq-es6'], functi
             return JSON.parse(input);
         }));
 
-        var jsonGithubEventsToCount = lib.registerFilter(new transform.FunctionFilter('jsonGithubEventsToCount', function (inputObj, input) {
+        var inputSpec = [{ name: 'jsonEvents' }, { name: 'eventType' }];
+        var jsonGithubEventsToCount = lib.registerFilter(new transform.FunctionFilter('jsonGithubEventsToCount', function (inputObj, input, eventType) {
             return Enumerable(input).where(function (e) {
-                return e.type == 'PushEvent';
+                return e.type == eventType;
             }).count();
-        }));
+        }, inputSpec));
 
         var getGithubEventsAsJson = new transform.Pipe('getGithubEventsAsJson');
         getGithubEventsAsJson.add(callGithubEvents).add(toJson);

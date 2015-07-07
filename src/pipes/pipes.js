@@ -28,11 +28,12 @@ export function registerPipes()
         return JSON.parse(input);
     }));
 
-    var jsonGithubEventsToCount = lib.registerFilter(new transform.FunctionFilter('jsonGithubEventsToCount', (inputObj, input)=> {
+    var inputSpec = [{name : 'jsonEvents'},{name : 'eventType'}];
+    var jsonGithubEventsToCount = lib.registerFilter(new transform.FunctionFilter('jsonGithubEventsToCount', (inputObj, input,eventType)=> {
         return Enumerable(input).where((e)=> {
-            return e.type == "PushEvent";
+            return e.type == eventType;
         }).count();
-    }));
+    },inputSpec));
 
     var getGithubEventsAsJson = new transform.Pipe('getGithubEventsAsJson');
     getGithubEventsAsJson.add(callGithubEvents)

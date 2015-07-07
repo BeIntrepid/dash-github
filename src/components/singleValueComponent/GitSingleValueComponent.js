@@ -13,6 +13,11 @@ export class GitSingleValueComponent extends BaseComponent
         super();
     }
 
+    switchType(type)
+    {
+        this.stream.getMapInputs().githubEventsToCount_jsonGithubEventsToCount.forInput('eventType').value = type;
+    }
+
     activate(model)
     {
         super.activate(model);
@@ -21,6 +26,13 @@ export class GitSingleValueComponent extends BaseComponent
         var lib = new transform.TransformLibrary();
 
         this.stream = new transform.Stream(lib.getPipeWrapped('githubEventsToCount'));
+
+        this.stream.build();
+
+        var inputs = this.stream.getMapInputs();
+
+        inputs.githubEventsToCount_jsonGithubEventsToCount.forInput('eventType').value = "PushEvent";
+
 
         this.stream.subscribe((o)=>{
             this.value = o;
