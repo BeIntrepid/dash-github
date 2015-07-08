@@ -1,6 +1,7 @@
 import {BaseComponent} from 'dash-component'
 import * as transform from 'dash-transform'
 import Enumerable from 'linq-es6'
+import {gitStyle} from '../../styles/gitStyle.css!css'
 
 
 export class ImageGrid extends BaseComponent

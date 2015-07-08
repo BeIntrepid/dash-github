@@ -1,5 +1,6 @@
 import {BaseComponent} from 'dash-component'
 import * as transform from 'dash-transform'
+import {gitStyle} from '../../styles/gitStyle.css!css'
 
 
 
@@ -16,7 +17,6 @@ export class GitSingleValueComponent extends BaseComponent
     switchType(type)
     {
         this.stream.streamModel.eventType = type;
-        this.stream.execute();
     }
 
     activate(model)

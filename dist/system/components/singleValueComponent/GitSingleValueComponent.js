@@ -1,7 +1,7 @@
-System.register(['dash-component', 'dash-transform'], function (_export) {
+System.register(['dash-component', 'dash-transform', '../../styles/gitStyle.css!css'], function (_export) {
     'use strict';
 
-    var BaseComponent, transform, GitSingleValueComponent;
+    var BaseComponent, transform, gitStyle, GitSingleValueComponent;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -12,6 +12,8 @@ System.register(['dash-component', 'dash-transform'], function (_export) {
             BaseComponent = _dashComponent.BaseComponent;
         }, function (_dashTransform) {
             transform = _dashTransform;
+        }, function (_stylesGitStyleCssCss) {
+            gitStyle = _stylesGitStyleCssCss.gitStyle;
         }],
         execute: function () {
             GitSingleValueComponent = (function (_BaseComponent) {
@@ -27,7 +29,6 @@ System.register(['dash-component', 'dash-transform'], function (_export) {
 
                 GitSingleValueComponent.prototype.switchType = function switchType(type) {
                     this.stream.streamModel.eventType = type;
-                    this.stream.execute();
                 };
 
                 GitSingleValueComponent.prototype.activate = function activate(model) {

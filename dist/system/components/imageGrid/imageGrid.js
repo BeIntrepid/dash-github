@@ -1,7 +1,7 @@
-System.register(['dash-component', 'dash-transform', 'linq-es6'], function (_export) {
+System.register(['dash-component', 'dash-transform', 'linq-es6', '../../styles/gitStyle.css!css'], function (_export) {
     'use strict';
 
-    var BaseComponent, transform, Enumerable, ImageGrid;
+    var BaseComponent, transform, Enumerable, gitStyle, ImageGrid;
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -14,6 +14,8 @@ System.register(['dash-component', 'dash-transform', 'linq-es6'], function (_exp
             transform = _dashTransform;
         }, function (_linqEs6) {
             Enumerable = _linqEs6['default'];
+        }, function (_stylesGitStyleCssCss) {
+            gitStyle = _stylesGitStyleCssCss.gitStyle;
         }],
         execute: function () {
             ImageGrid = (function (_BaseComponent) {
