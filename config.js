@@ -18,12 +18,20 @@ System.config({
     "babel": "npm:babel-core@5.5.6",
     "babel-runtime": "npm:babel-runtime@5.5.6",
     "core-js": "npm:core-js@0.9.15",
-    "dash-transform": "github:beintrepid/dash-transform@0.0.2",
+    "dash-component": "github:beintrepid/dash-component@0.0.5",
+    "dash-transform": "github:beintrepid/dash-transform@0.0.4",
     "gulp": "npm:gulp@3.9.0",
     "linq-es6": "npm:linq-es6@0.2.1",
     "require-dir": "npm:require-dir@0.3.0",
     "run-sequence": "npm:run-sequence@1.1.0",
+    "github:beintrepid/dash-component@0.0.5": {
+      "dash-core": "github:beintrepid/dash-core@0.0.3"
+    },
     "github:beintrepid/dash-transform@0.0.2": {
+      "jquery": "github:components/jquery@2.1.4",
+      "linq-es6": "npm:linq-es6@0.2.1"
+    },
+    "github:beintrepid/dash-transform@0.0.4": {
       "jquery": "github:components/jquery@2.1.4",
       "linq-es6": "npm:linq-es6@0.2.1"
     },
