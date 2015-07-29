@@ -1,6 +1,6 @@
 {
   "name": "dash-github",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Github components",
   "jspm": {
     "main": "index",
@@ -9,8 +9,8 @@
       "lib": "dist/system"
     },
     "dependencies": {
-      "dash-component": "github:beintrepid/dash-component@^0.0.5",
-      "dash-transform": "github:beintrepid/dash-transform@^0.0.4",
+      "dash-component": "github:beintrepid/dash-component@^0.0.6",
+      "dash-transform": "github:beintrepid/dash-transform@^0.0.6",
       "linq-es6": "npm:linq-es6@^0.2.1"
     },
     "devDependencies": {
